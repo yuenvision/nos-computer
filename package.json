@@ -1,0 +1,15 @@
+{
+  "name": "nos-computers-site",
+  "version": "1.0.0",
+  "description": "NOS Computers — static marketing site (Eleventy build, content-managed)",
+  "private": true,
+  "scripts": {
+    "start": "eleventy --serve --port=8765",
+    "build": "eleventy",
+    "clean": "rm -rf _site"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "js-yaml": "^4.1.0"
+  }
+}

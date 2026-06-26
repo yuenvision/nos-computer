@@ -1,0 +1,19 @@
+# ⭐ Business Info — Tier 1 (contact details used across the whole site)
+# Edit the phone here and it updates the header, hero, modals, contact + footer at once.
+phone: "(520) 989-3700"
+email: "info@noscomputerstucson.com"
+
+address:
+  street: "2860 West Ina Road"
+  suite: "Suite #112"
+  city: "Tucson"
+  state: "AZ"
+  zip: "85741"
+
+hours:
+  weekday: "9:00am – 5:30pm"
+  saturday: "10:00am – 2:00pm"
+
+social:
+  facebook: "https://www.facebook.com/NOSComputersAZ/"
+  youtube: "https://www.youtube.com/@noscomputersmedia"

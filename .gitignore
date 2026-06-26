@@ -11,3 +11,7 @@ Thumbs.db
 # Local scratch / logs
 *.log
 _shot.html
+
+# Node / Eleventy build
+node_modules/
+_site/

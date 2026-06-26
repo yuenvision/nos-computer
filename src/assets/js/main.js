@@ -54,63 +54,13 @@
   document.getElementById("buildNext").addEventListener("click", function () { scrollBuilds(1); });
 
   /* =========================================================
-     Service modal content
+     Service modal content — baked into the page at build time
+     (window.NOS_SERVICES), sourced from the CMS data files.
+     See the inline <script> at the bottom of index.html.
      ========================================================= */
-  var SERVICES = {
-    repair: {
-      tag: "Repair & Diagnostics",
-      title: "Repair & Diagnostics",
-      price: "",
-      intro: "Is your computer running slowly? Are you seeing suspicious pop-ups on the desktop or when using the internet? Our technicians work with you to identify what your computer needs, then perform the service to remove junk files, malware, and corrupted operating systems. When you get it back — same or next business day — it will be working like new.",
-      list: [
-        "Replacing malfunctioning or damaged hardware",
-        "Remove all viruses, spyware, and malware",
-        "Repair error messages",
-        "Update your software and drivers",
-        "Data recovery",
-        "Laptop & monitor screen replacements"
-      ],
-      pricing: [
-        { name: "Service", meta: "0–1 business days", amt: "$125" },
-        { name: "Virus Removal", meta: "0–1 business days", amt: "$145" },
-        { name: "Diagnostic", meta: "$55 due upon declination of repairs", amt: "$0–$55" }
-      ]
-    },
-    builds: {
-      tag: "Custom PC Builds",
-      title: "Custom PC Builds",
-      price: "",
-      intro: "We hand-build and test custom PCs in-store to fit exactly how you use your computer — from simple email machines to high-end gaming and video-editing rigs. Choose one of our four starting tiers and we'll tailor it to your needs and budget.",
-      list: [
-        "NOS Entry Build — Intel i3 · 8GB RAM · 256GB NVMe · Windows 11 (Email & Web)",
-        "NOS Mid Build — Intel i5 · 16GB RAM · 512GB NVMe · Windows 11 (Office Use)",
-        "NOS Turbo Build — Intel i7 · 32GB RAM · 1TB NVMe · RTX 40 (optional) (1080p Gaming)",
-        "NOS Max Build — Intel i9 · 64GB RAM · 1TB NVMe · Nvidia GPU (4K / Video Editing)"
-      ],
-      pricing: [
-        { name: "Custom builds", meta: "Tailored to your needs", amt: "Call for a quote" }
-      ]
-    },
-    install: {
-      tag: "Installation Services",
-      title: "Installation Services",
-      price: "",
-      intro: "Ensure your computer works right from the start. Whether you purchased equipment on your own or from NOS, our certified technicians assist with installation and networking solutions, setting up and installing all hardware and making sure everything works properly before it leaves the shop. 100% satisfaction guaranteed.",
-      list: [
-        "Clean installation of Windows, macOS, or Linux",
-        "Full format of the operating-system drive",
-        "Installation of system device drivers & back-end software",
-        "Security updates and appropriate BIOS updates applied",
-        "Optional data migration — pictures, documents, photos, videos & bookmarks",
-        "Free antivirus software installed"
-      ],
-      pricing: [
-        { name: "Operating System Install", meta: "0–1 business days", amt: "$125" },
-        { name: "OS Install with Data Migration", meta: "0–1 business days", amt: "$185" },
-        { name: "Business Networking", meta: "Network setup & support for companies and organizations — call for pricing", amt: "Custom Quote" }
-      ]
-    }
-  };
+  var SERVICES = window.NOS_SERVICES || {};
+  var PHONE = window.NOS_PHONE || "(520) 989-3700";
+  var TEL = window.NOS_TEL || "+15209893700";
 
   var svcModal = document.getElementById("serviceModal");
   var svcTag = document.getElementById("svcTag");
@@ -138,7 +88,7 @@
       });
       html += "</div>";
     }
-    html += '<div class="modal-cta"><a href="tel:+15209893700" class="btn btn-primary">📞 Call (520) 989-3700</a><a href="#contact" class="btn btn-ghost" data-close>Visit the shop</a></div>';
+    html += '<div class="modal-cta"><a href="tel:' + TEL + '" class="btn btn-primary">📞 Call ' + PHONE + '</a><a href="#contact" class="btn btn-ghost" data-close>Visit the shop</a></div>';
     svcBody.innerHTML = html;
     openModal(svcModal);
   }
