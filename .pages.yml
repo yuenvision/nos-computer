@@ -1,0 +1,153 @@
+# Pages CMS configuration — defines the /admin editing screens.
+# The order of entries below IS the order Shawn sees in the sidebar.
+# ⭐ = Tier 1 (changes most often), kept at the top.
+#
+# Every field that exists in a data file is declared here, because the CMS
+# rewrites the whole file on save — undeclared keys would be dropped.
+
+media:
+  input: src/assets/img
+  output: assets/img
+
+content:
+  # ───────────── ⭐ Tier 1 ─────────────
+  - name: prices
+    label: "⭐ Prices"
+    type: file
+    path: src/_data/prices.yml
+    format: yaml
+    list: true
+    fields:
+      - name: group
+        label: "Shows under which service"
+        type: select
+        options:
+          values:
+            - { value: repair, label: "Repair & Diagnostics" }
+            - { value: builds, label: "Custom PC Builds" }
+            - { value: install, label: "Installation Services" }
+      - { name: name, label: "Item", type: string }
+      - { name: meta, label: "Details / fine print", type: string }
+      - { name: amt, label: "Price", type: string }
+
+  - name: business
+    label: "⭐ Business Info"
+    type: file
+    path: src/_data/business.yml
+    format: yaml
+    fields:
+      - { name: phone, label: "Phone", type: string }
+      - { name: email, label: "Email", type: string }
+      - name: address
+        label: "Address"
+        type: object
+        fields:
+          - { name: street, label: "Street", type: string }
+          - { name: suite, label: "Suite", type: string }
+          - { name: city, label: "City", type: string }
+          - { name: state, label: "State", type: string }
+          - { name: zip, label: "ZIP", type: string }
+      - name: hours
+        label: "Store hours"
+        type: object
+        fields:
+          - { name: weekday, label: "Monday–Friday", type: string }
+          - { name: saturday, label: "Saturday", type: string }
+      - name: social
+        label: "Social links"
+        type: object
+        fields:
+          - { name: facebook, label: "Facebook URL", type: string }
+          - { name: youtube, label: "YouTube URL", type: string }
+
+  # ───────────── Tier 2 ─────────────
+  - name: services
+    label: "Services"
+    type: file
+    path: src/_data/services.yml
+    format: yaml
+    list: true
+    fields:
+      - { name: key, label: "Internal ID — do not change", type: string }
+      - { name: image, label: "Card image (managed by developer)", type: string }
+      - { name: cardTitle, label: "Card title", type: string }
+      - { name: cardBlurb, label: "Card blurb", type: text }
+      - { name: cardCta, label: "Card link text", type: string }
+      - { name: modalTag, label: "Pop-up tag", type: string }
+      - { name: modalTitle, label: "Pop-up title", type: string }
+      - { name: intro, label: "Pop-up intro paragraph", type: text }
+      - { name: list, label: "Pop-up bullet points", type: string, list: true }
+
+  - name: builds
+    label: "PC Builds"
+    type: file
+    path: src/_data/builds.yml
+    format: yaml
+    list: true
+    fields:
+      - { name: tier, label: "Tier label", type: string }
+      - { name: title, label: "Build name", type: string }
+      - { name: ideal, label: "Ideal for", type: string }
+      - { name: image, label: "Card image (managed by developer)", type: string }
+      - { name: flame, label: "Highlight with orange button", type: boolean }
+      - name: specs
+        label: "Spec lines"
+        type: object
+        list: true
+        fields:
+          - { name: strong, label: "Bold part (e.g. Intel i7)", type: string }
+          - { name: rest, label: "Rest of line (e.g. Processor)", type: string }
+
+  - name: hero
+    label: "Hero & Headlines"
+    type: file
+    path: src/_data/hero.yml
+    format: yaml
+    fields:
+      - { name: headlineLead, label: "Headline — first part", type: string }
+      - { name: headlineHighlight, label: "Headline — highlighted words", type: string }
+      - { name: headlineTail, label: "Headline — last part", type: string }
+      - { name: lede, label: "Lead paragraph", type: text }
+      - { name: sub, label: "Sub paragraph", type: text }
+      - { name: badges, label: "Trust badges", type: string, list: true }
+
+  - name: warranty
+    label: "Warranty"
+    type: file
+    path: src/_data/warranty.yml
+    format: yaml
+    fields:
+      - name: software
+        label: "Software coverage"
+        type: object
+        list: true
+        fields:
+          - { name: when, label: "Time window", type: string }
+          - { name: deal, label: "Deal", type: string }
+          - { name: free, label: "Show in green (free)", type: boolean }
+      - name: hardware
+        label: "Hardware coverage"
+        type: object
+        list: true
+        fields:
+          - { name: when, label: "Time window", type: string }
+          - { name: deal, label: "Deal", type: string }
+          - { name: free, label: "Show in green (free)", type: boolean }
+      - { name: hardwareNote, label: "Hardware note", type: text }
+      - { name: bannerLead, label: "Banner — lead text", type: string }
+      - { name: bannerStrong, label: "Banner — emphasized text", type: string }
+
+  - name: site
+    label: "Site & SEO"
+    type: file
+    path: src/_data/site.yml
+    format: yaml
+    fields:
+      - { name: title, label: "Page title (browser tab + Google)", type: string }
+      - { name: description, label: "Search description", type: text }
+      - { name: themeColor, label: "Theme color (hex)", type: string }
+      - { name: ogTitle, label: "Social-share title", type: string }
+      - { name: ogDescription, label: "Social-share description", type: text }
+      - { name: youtubeId, label: "YouTube video ID", type: string }
+      - { name: footerTagline, label: "Footer tagline", type: text }
+      - { name: footerBottomRight, label: "Footer bottom-right line", type: string }
