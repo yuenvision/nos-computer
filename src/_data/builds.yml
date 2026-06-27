@@ -52,5 +52,5 @@
     - strong: 1TB
       rest: NVMe SSD
     - strong: Nvidia Quadro
-      rest: or RTX 40 Series
+      rest: or RTX GPU
     - strong: Windows 11
