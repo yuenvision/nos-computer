@@ -1,7 +1,7 @@
 - group: repair
   name: Service
   meta: 0–1 business days
-  amt: $125
+  amt: $200
 - group: repair
   name: Virus Removal
   meta: 0–1 business days
