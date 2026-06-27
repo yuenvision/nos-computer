@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NOS Computers — Computer Sales, Service &amp; Repair in Tucson, AZ</title>
-  <meta name="description" content="NOS Computers in Tucson, AZ offers expert computer repair, virus removal, custom PC builds, and operating system installs. A+ certified technicians. 100% satisfaction guaranteed." />
-  <meta name="theme-color" content="#0a0d14" />
+  <title>{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}" />
+  <meta name="theme-color" content="{{ site.themeColor }}" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="NOS Computers — Tucson Computer Repair &amp; Custom PC Builds" />
-  <meta property="og:description" content="Expert computer repair, virus removal, and custom PC builds in Tucson, AZ. A+ certified technicians, 100% satisfaction guaranteed." />
+  <meta property="og:title" content="{{ site.ogTitle }}" />
+  <meta property="og:description" content="{{ site.ogDescription }}" />
   <meta property="og:type" content="website" />
 
   <link rel="icon" type="image/png" href="assets/img/brand/logo.png" />
@@ -37,7 +37,7 @@
         </ul>
       </nav>
       <div class="nav-cta">
-        <a href="tel:+15209893700" class="btn btn-primary">📞 (520) 989-3700</a>
+        <a href="tel:{{ business.phone | telLink }}" class="btn btn-primary">📞 {{ business.phone }}</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -55,17 +55,17 @@
     </div>
     <div class="container">
       <div class="hero-inner">
-        <h1>Your personal <span class="grad">tech support</span> team in Tucson.</h1>
-        <p class="lede">At NOS Computers we are committed to providing a level of service seldom found in today's retail marketplace.</p>
-        <p class="sub">Whether you need an old machine working like new, or a brand-new machine working perfectly, our A+ certified technicians will make sure you leave happy.</p>
+        <h1>{{ hero.headlineLead }} <span class="grad">{{ hero.headlineHighlight }}</span> {{ hero.headlineTail }}</h1>
+        <p class="lede">{{ hero.lede }}</p>
+        <p class="sub">{{ hero.sub }}</p>
         <div class="hero-actions">
-          <a href="tel:+15209893700" class="btn btn-primary">📞 Call (520) 989-3700</a>
+          <a href="tel:{{ business.phone | telLink }}" class="btn btn-primary">📞 Call {{ business.phone }}</a>
           <a href="#services" class="btn btn-ghost">Explore our services →</a>
         </div>
         <div class="hero-trust">
-          <div><span class="dot"></span> A+ Certified Technicians</div>
-          <div><span class="dot"></span> Same / Next-Day Service</div>
-          <div><span class="dot"></span> 100% Satisfaction Guaranteed</div>
+          {% for badge in hero.badges %}
+          <div><span class="dot"></span> {{ badge }}</div>
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -80,37 +80,16 @@
         <p class="section-intro">As a full-service shop, we pride ourselves on cost-effective solutions for both businesses and residential customers. We service all major brands, makes, and models of desktop and laptop computers &mdash; including Apple and Windows PCs. Tap any card for full details and pricing.</p>
       </div>
       <div class="services-grid">
-
-        <!-- Repair -->
-        <article class="card service-card reveal" data-modal="repair">
-          <div class="media"><img src="assets/img/services/repair.jpg" alt="Computer repair and diagnostics" /></div>
+        {% for svc in services %}
+        <article class="card service-card reveal" data-modal="{{ svc.key }}">
+          <div class="media"><img src="{{ svc.image }}" alt="{{ svc.cardTitle }}" /></div>
           <div class="body">
-            <h3>Repair &amp; Diagnostics</h3>
-            <p>Running slow or seeing suspicious pop-ups? Our techs identify what your machine needs and get it back to you working like new &mdash; often the same or next business day.</p>
-            <span class="more">View details &amp; pricing →</span>
+            <h3>{{ svc.cardTitle }}</h3>
+            <p>{{ svc.cardBlurb }}</p>
+            <span class="more">{{ svc.cardCta }}</span>
           </div>
         </article>
-
-        <!-- Custom Builds -->
-        <article class="card service-card reveal" data-modal="builds">
-          <div class="media"><img src="assets/img/gallery/build-04.jpg" alt="Custom PC build" /></div>
-          <div class="body">
-            <h3>Custom PC Builds</h3>
-            <p>From everyday email machines to 4K gaming and video-editing rigs, we build and tune custom PCs to fit exactly how you use your computer &mdash; and your budget.</p>
-            <span class="more">See the builds →</span>
-          </div>
-        </article>
-
-        <!-- Installation -->
-        <article class="card service-card reveal" data-modal="install">
-          <div class="media"><img src="assets/img/services/os-install.png" alt="Operating system installation" /></div>
-          <div class="body">
-            <h3>Installation Services</h3>
-            <p>Operating system installs, data migration, and business networking setup. Our certified technicians make sure everything works properly before it leaves the shop.</p>
-            <span class="more">View details &amp; pricing →</span>
-          </div>
-        </article>
-
+        {% endfor %}
       </div>
     </div>
   </section>
@@ -132,73 +111,22 @@
 
       <div class="builds-track-wrap">
         <div class="builds-track" id="buildsTrack">
-
+          {% for b in builds %}
           <article class="card build-card">
-            <div class="media"><img src="assets/img/gallery/build-06.jpg" alt="NOS Entry Build" /></div>
+            <div class="media"><img src="{{ b.image }}" alt="{{ b.title }}" /></div>
             <div class="body">
-              <div class="build-tier">Entry</div>
-              <h3>NOS Entry Build</h3>
-              <p class="build-ideal">Ideal for: Email &amp; Web Browsing</p>
+              <div class="build-tier">{{ b.tier }}</div>
+              <h3>{{ b.title }}</h3>
+              <p class="build-ideal">Ideal for: {{ b.ideal }}</p>
               <ul class="spec-list">
-                <li>⚡ <span><b>Intel i3</b> Processor</span></li>
-                <li>⚡ <span><b>8GB</b> RAM</span></li>
-                <li>⚡ <span><b>256GB</b> NVMe SSD</span></li>
-                <li>⚡ <span><b>Windows 11</b></span></li>
+                {% for s in b.specs %}
+                <li>⚡ <span><b>{{ s.strong }}</b>{% if s.rest %} {{ s.rest }}{% endif %}</span></li>
+                {% endfor %}
               </ul>
-              <a href="#contact" class="btn btn-ghost">Ask about this build</a>
+              <a href="#contact" class="btn {{ "btn-flame" if b.flame else "btn-ghost" }}">Ask about this build</a>
             </div>
           </article>
-
-          <article class="card build-card">
-            <div class="media"><img src="assets/img/gallery/build-07.jpg" alt="NOS Mid Build" /></div>
-            <div class="body">
-              <div class="build-tier">Mid</div>
-              <h3>NOS Mid Build</h3>
-              <p class="build-ideal">Ideal for: Office Use</p>
-              <ul class="spec-list">
-                <li>⚡ <span><b>Intel i5</b> Processor</span></li>
-                <li>⚡ <span><b>16GB</b> RAM</span></li>
-                <li>⚡ <span><b>512GB</b> NVMe SSD</span></li>
-                <li>⚡ <span><b>Windows 11</b></span></li>
-              </ul>
-              <a href="#contact" class="btn btn-ghost">Ask about this build</a>
-            </div>
-          </article>
-
-          <article class="card build-card">
-            <div class="media"><img src="assets/img/gallery/build-02.jpg" alt="NOS Turbo Build" /></div>
-            <div class="body">
-              <div class="build-tier">Turbo</div>
-              <h3>NOS Turbo Build</h3>
-              <p class="build-ideal">Ideal for: Multi-Tasking or 1080p Gaming</p>
-              <ul class="spec-list">
-                <li>⚡ <span><b>Intel i7</b> Processor</span></li>
-                <li>⚡ <span><b>32GB</b> RAM</span></li>
-                <li>⚡ <span><b>1TB</b> NVMe SSD</span></li>
-                <li>⚡ <span><b>RTX 40 Series</b> (Optional)</span></li>
-                <li>⚡ <span><b>Windows 11</b></span></li>
-              </ul>
-              <a href="#contact" class="btn btn-flame">Ask about this build</a>
-            </div>
-          </article>
-
-          <article class="card build-card">
-            <div class="media"><img src="assets/img/gallery/build-04.jpg" alt="NOS Max Build" /></div>
-            <div class="body">
-              <div class="build-tier">Max</div>
-              <h3>NOS Max Build</h3>
-              <p class="build-ideal">Ideal for: 4K Gaming or Video Editing</p>
-              <ul class="spec-list">
-                <li>⚡ <span><b>Intel i9</b> Processor</span></li>
-                <li>⚡ <span><b>64GB</b> RAM</span></li>
-                <li>⚡ <span><b>1TB</b> NVMe SSD</span></li>
-                <li>⚡ <span><b>Nvidia Quadro</b> or RTX 40 Series</span></li>
-                <li>⚡ <span><b>Windows 11</b></span></li>
-              </ul>
-              <a href="#contact" class="btn btn-flame">Ask about this build</a>
-            </div>
-          </article>
-
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -233,9 +161,9 @@
           </div>
           <h3>Software Issues</h3>
           <ul class="warranty-tiers">
-            <li><span class="when">Less than 1 week</span><span class="deal free">Free of charge</span></li>
-            <li><span class="when">Less than 2 months</span><span class="deal">30% discount</span></li>
-            <li><span class="when">Less than 4 months</span><span class="deal">15% discount</span></li>
+            {% for t in warranty.software %}
+            <li><span class="when">{{ t.when }}</span><span class="deal{{ " free" if t.free }}">{{ t.deal }}</span></li>
+            {% endfor %}
           </ul>
         </div>
         <div class="card warranty-card hw">
@@ -244,12 +172,14 @@
           </div>
           <h3>Hardware Issues</h3>
           <ul class="warranty-tiers">
-            <li><span class="when">Less than 1 year</span><span class="deal free">Free of charge</span></li>
+            {% for t in warranty.hardware %}
+            <li><span class="when">{{ t.when }}</span><span class="deal{{ " free" if t.free }}">{{ t.deal }}</span></li>
+            {% endfor %}
           </ul>
-          <p style="color:var(--text-dim); margin:22px 0 0; font-size:16px;">Hardware we install is covered for a full year, so you can buy with confidence.</p>
+          <p style="color:var(--text-dim); margin:22px 0 0; font-size:16px;">{{ warranty.hardwareNote }}</p>
         </div>
       </div>
-      <p class="warranty-banner reveal">All work is <span>100% satisfaction guaranteed.</span></p>
+      <p class="warranty-banner reveal">{{ warranty.bannerLead }} <span>{{ warranty.bannerStrong }}</span></p>
     </div>
   </section>
 
@@ -263,7 +193,7 @@
       </div>
       <div class="video-frame reveal">
         <iframe
-          src="https://www.youtube-nocookie.com/embed/uQZBCWTXUak"
+          src="https://www.youtube-nocookie.com/embed/{{ site.youtubeId }}"
           title="NOS Computers"
           loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -273,6 +203,7 @@
   </section>
 
   <!-- ============ CONTACT ============ -->
+  {% set addrFull = business.address.street + " " + business.address.suite + " " + business.address.city + " " + business.address.state + " " + business.address.zip %}
   <section class="section" id="contact" style="background: var(--bg-2); border-top: 1px solid var(--border);">
     <div class="container">
       <div class="reveal text-center">
@@ -290,7 +221,7 @@
             </div>
             <div>
               <div class="label">Location</div>
-              <div class="val">2860 West Ina Road, Suite #112<br/>Tucson, AZ 85741</div>
+              <div class="val">{{ business.address.street }}, {{ business.address.suite }}<br/>{{ business.address.city }}, {{ business.address.state }} {{ business.address.zip }}</div>
             </div>
           </div>
 
@@ -300,7 +231,7 @@
             </div>
             <div>
               <div class="label">Phone</div>
-              <div class="val"><a href="tel:+15209893700">(520) 989-3700</a></div>
+              <div class="val"><a href="tel:{{ business.phone | telLink }}">{{ business.phone }}</a></div>
             </div>
           </div>
 
@@ -310,7 +241,7 @@
             </div>
             <div>
               <div class="label">Email</div>
-              <div class="val"><a href="mailto:info@noscomputerstucson.com">info@noscomputerstucson.com</a></div>
+              <div class="val"><a href="mailto:{{ business.email }}">{{ business.email }}</a></div>
             </div>
           </div>
 
@@ -321,15 +252,15 @@
             <div>
               <div class="label">Store Hours</div>
               <div class="val" style="font-weight:500;">
-                Monday&ndash;Friday: 9:00am &ndash; 5:30pm<br/>
-                Saturday: 10:00am &ndash; 2:00pm
+                Monday&ndash;Friday: {{ business.hours.weekday }}<br/>
+                Saturday: {{ business.hours.saturday }}
               </div>
             </div>
           </div>
 
           <div class="contact-actions">
-            <a href="tel:+15209893700" class="btn btn-primary">Call now</a>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=2860+West+Ina+Road+Suite+112+Tucson+AZ+85741" target="_blank" rel="noopener" class="btn btn-ghost">Get directions</a>
+            <a href="tel:{{ business.phone | telLink }}" class="btn btn-primary">Call now</a>
+            <a href="https://www.google.com/maps/dir/?api=1&destination={{ addrFull | urlencode }}" target="_blank" rel="noopener" class="btn btn-ghost">Get directions</a>
           </div>
         </div>
 
@@ -337,7 +268,7 @@
           <iframe
             title="NOS Computers location map"
             loading="lazy"
-            src="https://www.google.com/maps?q=2860%20West%20Ina%20Road%20Suite%20112%20Tucson%20AZ%2085741&output=embed"
+            src="https://www.google.com/maps?q={{ addrFull | urlencode }}&output=embed"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
@@ -350,7 +281,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="assets/img/brand/logo.png" alt="NOS Computers logo" />
-          <p>Computer sales, service and repair for Tucson &amp; Marana. Make NOS Computers your personal tech support team!</p>
+          <p>{{ site.footerTagline }}</p>
         </div>
         <div class="footer-col">
           <h4>Explore</h4>
@@ -365,29 +296,29 @@
         <div class="footer-col">
           <h4>Visit</h4>
           <ul>
-            <li>2860 West Ina Road<br/>Suite #112<br/>Tucson, AZ 85741</li>
-            <li><a href="tel:+15209893700">(520) 989-3700</a></li>
+            <li>{{ business.address.street }}<br/>{{ business.address.suite }}<br/>{{ business.address.city }}, {{ business.address.state }} {{ business.address.zip }}</li>
+            <li><a href="tel:{{ business.phone | telLink }}">{{ business.phone }}</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Hours &amp; Connect</h4>
           <ul>
-            <li>Mon&ndash;Fri: 9:00am &ndash; 5:30pm</li>
-            <li>Saturday: 10:00am &ndash; 2:00pm</li>
+            <li>Mon&ndash;Fri: {{ business.hours.weekday }}</li>
+            <li>Saturday: {{ business.hours.saturday }}</li>
           </ul>
           <div class="social-row">
-            <a href="https://www.facebook.com/NOSComputersAZ/" target="_blank" rel="noopener" aria-label="Facebook">
+            <a href="{{ business.social.facebook }}" target="_blank" rel="noopener" aria-label="Facebook">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z"/></svg>
             </a>
-            <a href="https://www.youtube.com/@noscomputersmedia" target="_blank" rel="noopener" aria-label="YouTube">
+            <a href="{{ business.social.youtube }}" target="_blank" rel="noopener" aria-label="YouTube">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.4-4.74a2.5 2.5 0 00-1.76-1.77C19.29 5.1 12 5.1 12 5.1s-7.29 0-8.84.39A2.5 2.5 0 001.4 7.26C1 8.8 1 12 1 12s0 3.2.4 4.74a2.5 2.5 0 001.76 1.77c1.55.39 8.84.39 8.84.39s7.29 0 8.84-.39a2.5 2.5 0 001.76-1.77C23 15.2 23 12 23 12zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
             </a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <div>Copyright &copy; 2026 NOS Computers</div>
-        <div>A+ Certified &bull; 100% Satisfaction Guaranteed</div>
+        <div>Copyright &copy; {% year %} NOS Computers</div>
+        <div>{{ site.footerBottomRight }}</div>
       </div>
     </div>
   </footer>
@@ -416,6 +347,23 @@
     <button class="lightbox-nav lightbox-next" id="lbNext" aria-label="Next image">›</button>
   </div>
 
+  <!-- Content baked in at build time for the service pop-ups (edited via the CMS). -->
+  <script>
+    window.NOS_PHONE = {{ business.phone | dump | safe }};
+    window.NOS_TEL = {{ (business.phone | telLink) | dump | safe }};
+    window.NOS_SERVICES = {
+      {% for svc in services %}
+      {{ svc.key | dump | safe }}: {
+        "tag": {{ svc.modalTag | dump | safe }},
+        "title": {{ svc.modalTitle | dump | safe }},
+        "price": "",
+        "intro": {{ svc.intro | dump | safe }},
+        "list": {{ svc.list | dump | safe }},
+        "pricing": {{ prices | where("group", svc.key) | dump | safe }}
+      }{{ "," if not loop.last }}
+      {% endfor %}
+    };
+  </script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

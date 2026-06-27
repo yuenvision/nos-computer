@@ -1,0 +1,13 @@
+# Site & SEO — Tier 2 (page title, search/social text, the intro video, footer line).
+title: "NOS Computers — Computer Sales, Service & Repair in Tucson, AZ"
+description: "NOS Computers in Tucson, AZ offers expert computer repair, virus removal, custom PC builds, and operating system installs. A+ certified technicians. 100% satisfaction guaranteed."
+themeColor: "#0a0d14"
+
+ogTitle: "NOS Computers — Tucson Computer Repair & Custom PC Builds"
+ogDescription: "Expert computer repair, virus removal, and custom PC builds in Tucson, AZ. A+ certified technicians, 100% satisfaction guaranteed."
+
+# YouTube video shown in the "Get to know us" section (the ID after watch?v= in the URL).
+youtubeId: "uQZBCWTXUak"
+
+footerTagline: "Computer sales, service and repair for Tucson & Marana. Make NOS Computers your personal tech support team!"
+footerBottomRight: "A+ Certified • 100% Satisfaction Guaranteed"

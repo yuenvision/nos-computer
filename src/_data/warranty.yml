@@ -1,0 +1,11 @@
+# Warranty — Tier 2. Each tier shows a time window + the deal.
+# "free: true" styles the deal in green.
+software:
+  - { when: "Less than 1 week", deal: "Free of charge", free: true }
+  - { when: "Less than 2 months", deal: "30% discount", free: false }
+  - { when: "Less than 4 months", deal: "15% discount", free: false }
+hardware:
+  - { when: "Less than 1 year", deal: "Free of charge", free: true }
+hardwareNote: "Hardware we install is covered for a full year, so you can buy with confidence."
+bannerLead: "All work is"
+bannerStrong: "100% satisfaction guaranteed."
