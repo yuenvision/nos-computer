@@ -179,6 +179,7 @@ a:hover { color: var(--accent-2); }
    ===================================================== */
 .hero {
   position: relative;
+  z-index: 0;                 /* own stacking context so the content layer scrolls cleanly over it */
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -186,30 +187,54 @@ a:hover { color: var(--accent-2); }
   overflow: hidden;
 }
 .hero-bg {
-  position: absolute; inset: 0;
+  position: fixed; inset: 0;  /* pinned to the viewport: stays static while content scrolls over it */
+  z-index: 0;
   background: var(--bg);
   overflow: hidden;
+}
+/* opaque content layer that rises over the fixed hero video as you scroll */
+.page {
+  position: relative;
+  z-index: 1;
+  background: var(--bg);
 }
 .hero-video {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
+  filter: brightness(1.08) saturate(1.12);  /* let the RGB build pop */
 }
+/* Legibility scrim behind the hero text — lighter than before so the video reads
+   brighter, and faded in after the intro so the video gets a clean opening moment. */
 .hero-bg::after {
   content: "";
   position: absolute; inset: 0;
   background:
-    linear-gradient(90deg, rgba(10,13,20,.88) 0%, rgba(10,13,20,.5) 50%, rgba(10,13,20,.2) 100%),
-    linear-gradient(180deg, rgba(10,13,20,.3) 0%, rgba(10,13,20,.5) 65%, var(--bg) 100%);
+    linear-gradient(90deg, rgba(10,13,20,.78) 0%, rgba(10,13,20,.32) 48%, rgba(10,13,20,0) 100%),
+    linear-gradient(180deg, rgba(10,13,20,.15) 0%, rgba(10,13,20,.28) 60%, var(--bg) 100%);
+  animation: heroScrim 1s ease 1.3s backwards;  /* hidden during the intro, fades in with the text */
 }
+@keyframes heroScrim { from { opacity: 0; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) {
   .hero-video { display: none; }
   .hero-bg {
     background: url("../img/gallery/build-02.jpg") center/cover no-repeat;
     opacity: .4;
   }
+  .hero-bg::after { animation: none; }
 }
-.hero-inner { position: relative; z-index: 2; max-width: 760px; }
+/* Hero text rises up and fades in on load, after the video's opening moment. */
+.hero-inner {
+  position: relative; z-index: 2; max-width: 760px;
+  animation: heroRise .9s cubic-bezier(.16,.84,.44,1) 1.3s backwards;
+}
+@keyframes heroRise {
+  from { opacity: 0; transform: translateY(48px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-inner { animation: none; }
+}
 .hero h1 {
   font-size: clamp(40px, 7vw, 74px);
   line-height: 1.03;
