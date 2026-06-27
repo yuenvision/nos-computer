@@ -1,31 +1,28 @@
-# ⭐ Prices — Tier 1 (the numbers that change most often)
-# Each price shows inside one service's pop-up, chosen by "group":
-#   repair  = Repair & Diagnostics    builds = Custom PC Builds    install = Installation Services
-- group: "repair"
-  name: "Service"
-  meta: "0–1 business days"
-  amt: "$125"
-- group: "repair"
-  name: "Virus Removal"
-  meta: "0–1 business days"
-  amt: "$145"
-- group: "repair"
-  name: "Diagnostic"
-  meta: "$55 due upon declination of repairs"
-  amt: "$0–$55"
-- group: "builds"
-  name: "Custom builds"
-  meta: "Tailored to your needs"
-  amt: "Call for a quote"
-- group: "install"
-  name: "Operating System Install"
-  meta: "0–1 business days"
-  amt: "$125"
-- group: "install"
-  name: "OS Install with Data Migration"
-  meta: "0–1 business days"
-  amt: "$185"
-- group: "install"
-  name: "Business Networking"
-  meta: "Network setup & support for companies and organizations — call for pricing"
-  amt: "Custom Quote"
+- group: repair
+  name: Service
+  meta: 0–1 business days
+  amt: $126
+- group: repair
+  name: Virus Removal
+  meta: 0–1 business days
+  amt: $145
+- group: repair
+  name: Diagnostic
+  meta: $55 due upon declination of repairs
+  amt: $0–$55
+- group: builds
+  name: Custom builds
+  meta: Tailored to your needs
+  amt: Call for a quote
+- group: install
+  name: Operating System Install
+  meta: 0–1 business days
+  amt: $125
+- group: install
+  name: OS Install with Data Migration
+  meta: 0–1 business days
+  amt: $185
+- group: install
+  name: Business Networking
+  meta: Network setup & support for companies and organizations — call for pricing
+  amt: Custom Quote
