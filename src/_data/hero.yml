@@ -1,11 +1,11 @@
-# Hero — Tier 2 (the big opening banner over the video).
-# The headline is split into 3 parts so the middle can stay highlighted/colored.
-headlineLead: "Your personal"
-headlineHighlight: "tech support"
-headlineTail: "team in Tucson."
-lede: "At NOS Computers we are committed to providing a level of service seldom found in today's retail marketplace."
-sub: "Whether you need an old machine working like new, or a brand-new machine working perfectly, our A+ certified technicians will make sure you leave happy."
+headlineLead: Your personal tech support
+headlineTail: team in Tucson.
+lede: At NOS Computers we are committed to providing a level of service seldom
+  found in today's retail marketplace.
+sub: Whether you need an old machine working like new, or a brand-new machine
+  working perfectly, our A+ certified technicians will make sure you leave
+  happy.
 badges:
-  - "A+ Certified Technicians"
-  - "Same / Next-Day Service"
-  - "100% Satisfaction Guaranteed"
+  - A+ Certified Technicians
+  - Same / Next-Day Service
+  - 100% Satisfaction Guaranteed
