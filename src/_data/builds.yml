@@ -1,45 +1,56 @@
-# PC Builds — Tier 2 (the 4 build cards). Build images are fixed (ask Paul to swap).
-# Each spec line shows as:  ⚡ <bold>strong</bold> rest
-# "flame: true" gives the card the orange accent button (Turbo & Max).
-- tier: "Entry"
-  title: "NOS Entry Build"
-  ideal: "Email & Web Browsing"
-  image: "assets/img/gallery/build-06.jpg"
+- tier: Entry
+  title: NOS Entry Build
+  ideal: Email & Web Browsing
+  image: assets/img/gallery/build-06.jpg
   flame: false
   specs:
-    - { strong: "Intel i3", rest: "Processor" }
-    - { strong: "8GB", rest: "RAM" }
-    - { strong: "256GB", rest: "NVMe SSD" }
-    - { strong: "Windows 11", rest: "" }
-- tier: "Mid"
-  title: "NOS Mid Build"
-  ideal: "Office Use"
-  image: "assets/img/gallery/build-07.jpg"
+    - strong: Intel i3
+      rest: Processor
+    - strong: 8GB
+      rest: RAM
+    - strong: 256GB
+      rest: NVMe SSD
+    - strong: Windows 11
+- tier: Mid
+  title: NOS Mid Build
+  ideal: Office Use
+  image: assets/img/gallery/build-07.jpg
   flame: false
   specs:
-    - { strong: "Intel i5", rest: "Processor" }
-    - { strong: "16GB", rest: "RAM" }
-    - { strong: "512GB", rest: "NVMe SSD" }
-    - { strong: "Windows 11", rest: "" }
-- tier: "Turbo"
-  title: "NOS Turbo Build"
-  ideal: "Multi-Tasking or 1080p Gaming"
-  image: "assets/img/gallery/build-02.jpg"
+    - strong: Intel i5
+      rest: Processor
+    - strong: 16GB
+      rest: RAM
+    - strong: 512GB
+      rest: NVMe SSD
+    - strong: Windows 11
+- tier: Turbo
+  title: NOS Turbo Build
+  ideal: Multi-Tasking or 1080p Gaming
+  image: assets/img/gallery/build-02.jpg
   flame: true
   specs:
-    - { strong: "Intel i7", rest: "Processor" }
-    - { strong: "32GB", rest: "RAM" }
-    - { strong: "1TB", rest: "NVMe SSD" }
-    - { strong: "RTX 40 Series", rest: "(Optional)" }
-    - { strong: "Windows 11", rest: "" }
-- tier: "Max"
-  title: "NOS Max Build"
-  ideal: "4K Gaming or Video Editing"
-  image: "assets/img/gallery/build-04.jpg"
+    - strong: Intel i7
+      rest: Processor
+    - strong: 32GB
+      rest: RAM
+    - strong: 1TB
+      rest: NVMe SSD
+    - strong: RTX GPU
+      rest: (Optional)
+    - strong: Windows 11
+- tier: Max
+  title: NOS Max Build
+  ideal: 4K Gaming or Video Editing
+  image: assets/img/gallery/build-04.jpg
   flame: true
   specs:
-    - { strong: "Intel i9", rest: "Processor" }
-    - { strong: "64GB", rest: "RAM" }
-    - { strong: "1TB", rest: "NVMe SSD" }
-    - { strong: "Nvidia Quadro", rest: "or RTX 40 Series" }
-    - { strong: "Windows 11", rest: "" }
+    - strong: Intel i9
+      rest: Processor
+    - strong: 64GB
+      rest: RAM
+    - strong: 1TB
+      rest: NVMe SSD
+    - strong: Nvidia Quadro
+      rest: or RTX 40 Series
+    - strong: Windows 11
